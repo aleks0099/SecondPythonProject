@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    {% if user == message.recipient or user == message.sender %}
+        <p>{{ message.body }}</p>
+    {% else %}
+        <div class="features">
+            <h1>Access denied</h1>
+        </div>
+    {% endif %}
+{% endblock %}

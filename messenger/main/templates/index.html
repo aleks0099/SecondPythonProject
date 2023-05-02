@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block title %}Welcome!{% endblock %}
+
+{% block content %}
+<div class="features">
+    {% if user.is_authenticated %}
+        <head>
+        <meta http-equiv="refresh" content="0;{% url 'profile' %}" />
+        </head>
+    {% else %}
+        <h1>Messenger</h1>
+        <button class="btn btn-warning" onclick="window.location.href = 'login';">Login</button>
+        <button class="btn btn-warning" onclick="window.location.href = 'register';">Register</button>
+    {% endif %}
+</div>
+{% endblock %}
