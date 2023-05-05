@@ -7,7 +7,7 @@
             {% for message in messages %}
                 <li>
                     <a href="{% url 'message_detail' message.pk %}">
-                        <strong>{{ message.subject }}</strong> - Sender: {{ message.sender.username }} - {{ message.created_at }}
+                        <strong>{{ message.subject }}</strong>  |  Sender: {{ message.sender.username }}  |  Date: {{ message.created_at }}
                     </a>
                 </li>
             {% endfor %}

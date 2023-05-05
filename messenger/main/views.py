@@ -64,6 +64,4 @@ def sent(request):
 
 def message_detail(request, pk):
     message = Message.objects.get(pk=pk)
-    sender = str(message.sender.username)
-    receiver = str(message.recipient.username)
     return render(request, 'message_detail.html', {'message': message})

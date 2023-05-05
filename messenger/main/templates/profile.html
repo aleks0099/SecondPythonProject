@@ -4,15 +4,19 @@
 
 {% block content %}
     {% if user.is_authenticated %}
+        <style>
+        body {
+         text-align: center;
+        }
+        </style>
         <a href="{% url 'logout' %}">Logout</a>
-        <div class="features">
-            <h1>{{ user }}</h1>
-            <button class="btn btn-warning" onclick="window.location.href = 'received';">Received</button>
-            <button class="btn btn-warning" onclick="window.location.href = 'sent';">Sent</button>
-            <button class="btn btn-warning" onclick="window.location.href = 'send';">Send</button>
-        </div>
+        <h1 class = 'ttl'>{{ user }}</h1>
+        <button class="but" onclick="window.location.href = 'received';">Received</button>
+        <button class="but btn-warning" onclick="window.location.href = 'sent';">Sent</button>
+        <button class="but btn-warning" onclick="window.location.href = 'send';">Send</button>
     {% else %}
-        <a href="{% url 'login' %}">Login</a>
-        <a href="{% url 'register' %}">Register</a>
+        <head>
+        <meta http-equiv="refresh" content="0;{% url 'prev' %}" />
+        </head>
     {% endif %}
 {% endblock %}
