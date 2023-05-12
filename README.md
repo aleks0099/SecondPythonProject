@@ -3,6 +3,7 @@
     git clone git@github.com:aleks0099/SecondPythonProject.git
     pip install -r requirements.txt
     cd messenger
+    python manage.py migrate
     python manage.py runserver
 
 # How to use:
