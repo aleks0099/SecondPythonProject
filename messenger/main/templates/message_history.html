@@ -1,7 +1,10 @@
 {% extends 'layout.html' %}
 
+{% block title %}Welcome!{% endblock %}
+
 {% block content %}
-    {% if messages %}
+<h1 style="color:orange">Messages with {{ recipient }}</h1>
+{% if messages %}
         <ul>
             {% for message in messages %}
                 <li>

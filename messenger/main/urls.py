@@ -10,4 +10,5 @@ urlpatterns = [
     path('profile/send/', views.send_message, name='send_message'),
     path('profile/sent/', views.sent, name='sent'),
     path('message/<int:pk>/', views.message_detail, name='message_detail'),
+    path('message-history/', views.message_history, name='message_history'),
 ]

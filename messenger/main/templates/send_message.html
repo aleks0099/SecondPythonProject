@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="form-container">
-    <h1>Send message</h1>
+    <h1 style="color: orange">Send message</h1>
     <hr>
     <form method="post">
         {% if form.errors %}
@@ -26,7 +26,7 @@
         </div>
         {% csrf_token %}
         <button type="submit" class="btn btn-success">Send</button>
-        <button class="btn btn-warning" onclick="window.location.href = '/profile';">Back</button>
+        <button type="warning" class="btn btn-warning" onclick="window.location.href = '/profile';">Back</button>
     </form>
 </div>
     

@@ -61,6 +61,19 @@ def sent(request):
     messages = Message.objects.filter(sender=request.user)
     return render(request, 'sent.html', {'messages': messages})
 
+@login_required
+def message_history(request):
+    username = request.GET.get('username')
+    user = request.user
+    messages = Message.objects.filter(
+        (models.Q(sender=user) & models.Q(recipient__username=username)) |
+        (models.Q(sender__username=username) & models.Q(recipient=user))
+    ).order_by('-created_at')
+    context = {
+        'messages': messages,
+        'recipient': username,
+    }
+    return render(request, 'message_history.html', context)    
 
 def message_detail(request, pk):
     message = Message.objects.get(pk=pk)

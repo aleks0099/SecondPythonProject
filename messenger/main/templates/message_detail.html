@@ -2,8 +2,10 @@
 
 {% block content %}
     {% if user == message.recipient or user == message.sender %}
+    <div class="text-container">
         <pre>{{ message.body }}</pre>
+    </div>    
     {% else %}
-        <h1 class = "denied">Access denied</h1>
+        <h1 class = "denied" style="color: orange">Access denied</h1>
     {% endif %}
 {% endblock %}
