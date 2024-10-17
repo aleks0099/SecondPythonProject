@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block title %}Welcome!{% endblock %}
+{% block content %}
+{% if user.is_authenticated %}
+        <head>
+        <meta http-equiv="refresh" content="0;{% url 'profile' %}" />
+        </head>
+{% else %}
+    <style>
+    body {  
+     text-align: center;
+    }
+    </style>
+    <h1 class = "ttl">Messenger</h1>
+    <p class = "description" style="color: rgb(52, 18, 155)">There you can type messages to users of this site!</p>
+    <button class = "but" onclick="window.location.href = 'login';">Login</button>
+    <button class = "but" onclick="window.location.href = 'register';">Register</button>
+ {% endif %}
+{% endblock %}

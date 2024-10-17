@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>
+                    <a href="{% url 'message_detail' message.pk %}">
+                        <strong>{{ message.subject }}</strong>  |  Sender: {{ message.sender.username }}  |  Date: {{ message.created_at }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Empty.</p>
+    {% endif %}
+    <button class="btn btn-warning" onclick="window.location.href = '/profile';">Back</button>
+{% endblock %}

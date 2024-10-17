@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block title %}Welcome!{% endblock %}
+
+{% block content %}
+<h1 style="color:orange">Messages with {{ recipient }}</h1>
+{% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>
+                    <a href="{% url 'message_detail' message.pk %}">
+                        <strong>{{ message.subject }}</strong>  |  Receiver: {{ message.recipient.username }}  |  {{ message.created_at }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No messages.</p>
+    {% endif %}
+    <button class="btn btn-warning" onclick="window.location.href = '/profile';">Back</button>
+{% endblock %}
